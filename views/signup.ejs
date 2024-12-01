@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head") %>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include("./partials/nav") %>
+    <div class="m-4">
+      <h1>Sign Up</h1>
+      <form action="/user/signup" method="post" class="m-4">
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            name="fullName"
+            id="fullName"
+            class="form-control m-2"  
+            placeholder="fulName"
+            aria-label="fullName"
+            aria-describedby="fullName"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control m-2"
+            placeholder="Email"
+            aria-label="email"
+            aria-describedby="email"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control m-2"
+            placeholder="Password"
+            aria-label="password"
+            aria-describedby="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary m-3">Sign</button>
+      </form>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>

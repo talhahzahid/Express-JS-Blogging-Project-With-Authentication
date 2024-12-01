@@ -1,13 +1,16 @@
 import dotenv from "dotenv";
 dotenv.config();
-import express from "express";
+import express, { urlencoded } from "express";
 const app = express();
 const PORT = process.env.PORT || 3000;
 import path from "path";
 import connectdb from "./src/db/index.js";
+import router from "./src/routes/user.route.js";
 
-// middleware
-app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use('/user', router)
+
+// app.use(express.json());
 
 // ejs setup
 app.set("view engine", "ejs");
