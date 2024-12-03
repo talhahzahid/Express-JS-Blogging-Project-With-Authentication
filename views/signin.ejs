@@ -8,10 +8,11 @@
     <%- include("./partials/nav") %>
     <div class="m-4">
       <h1>Sign In</h1>
-      <form action="" method="post" class="m-4">
+      <form action="/user/signin" method="post" class="m-4">
         <div class="input-group flex-nowrap">
           <input
-            type="text"
+            type="email"
+            name="email"
             class="form-control m-2"
             placeholder="Email"
             aria-label="Username"
@@ -20,14 +21,15 @@
         </div>
         <div class="input-group flex-nowrap">
           <input
-            type="text"
+            type="password"
+            name="password"
             class="form-control m-2"
             placeholder="Password"
             aria-label="Username"
             aria-describedby="addon-wrapping"
           />
         </div>
-        <button type="button" class="btn btn-primary m-3">Sign In</button>
+        <button type="submit" class="btn btn-primary m-3">Sign In</button>
       </form>
     </div>
     <%- include("./partials/script") %>

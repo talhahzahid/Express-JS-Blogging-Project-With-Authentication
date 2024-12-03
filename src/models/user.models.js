@@ -43,4 +43,39 @@ userSchema.pre("save", function (next) {
     next()
 })
 
+// userSchema.static("matchPassword", async function (email, password) {
+//     const user = await this.findOne({ email });
+//     if (!user) {
+//         throw new Error('User not found');
+//     }
+//     const salt = user.salt;
+//     const storedHashedPassword = user.password;
+//     const hashedPassword = createHmac('sha256', salt)
+//         .update(password)
+//         .digest('hex');
+
+//     if (hashedPassword !== storedHashedPassword) {
+//         throw new Error('incorrect password');
+//     }
+//     storedHashedPassword === hashedPassword
+//     return user;
+// });
+
+userSchema.static("matchPassword", async function (email, password) {
+    const user = await this.findOne({ email });
+    if (!user) {
+        throw new Error('User not found');
+    }
+    const salt = user.salt;
+    const storedHashedPassword = user.password;
+    const hashedPassword = createHmac('sha256', salt)
+        .update(password)
+        .digest('hex');
+    if (hashedPassword !== storedHashedPassword) {
+        throw new Error('Incorrect password');
+    }
+    return user;
+});
+
+
 export default mongoose.model('User', userSchema)

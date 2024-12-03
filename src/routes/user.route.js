@@ -1,6 +1,6 @@
 import express from "express"
 // import { Router } from "express"
-import { registerUser } from "../controllers/user.controllers.js"
+import { registerUser, loginUser } from "../controllers/user.controllers.js"
 // import User from '../models/user.models.js'
 
 const router = express.Router()
@@ -8,8 +8,76 @@ const router = express.Router()
 router.get('/signup', (req, res) => {
     res.render('signup')
 })
+router.get('/signin', (req, res) => {
+    res.render('signin')
+})
 
 router.post('/signup', registerUser)
+router.post('/signin', loginUser)
+
+export default router
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // router.post('/signup', async (req, res) => {
 //     const { fullName, email, password } = req.body;  // Destructure the incoming data
@@ -25,6 +93,3 @@ router.post('/signup', registerUser)
 //     });
 //     return res.redirect('/')
 // })
-
-
-export default router
