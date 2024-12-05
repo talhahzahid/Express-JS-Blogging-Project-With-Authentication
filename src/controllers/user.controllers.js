@@ -30,12 +30,12 @@ const loginUser = async (req, res) => {
     }
 };
 
-// logout user 
-// const logoutUser = (req, res) => {
-//     res.clearcookies("token")
-//     return res.redirect('/user/signin');
-// }
+// logout user
+const logoutUser = (req, res) => {
+    res.clearCookie("token")
+    return res.redirect('/user/signin');
+}
 
 
 
-export { registerUser, loginUser }
+export { registerUser, loginUser, logoutUser }

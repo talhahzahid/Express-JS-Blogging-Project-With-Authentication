@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head") %>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include("./partials/nav") %>
+    <div class="m-4">
+      <h3>Add Blog</h3>
+      <form action="/blog/addblog" method="post" class="m-4">
+        <div class="input-group flex-nowrap">
+          <input
+            type="file"
+            name="coverImage"
+            class="form-control m-2"
+            placeholder="Enter Title"
+            aria-label="title"
+            aria-describedby="coverImage"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            name="title"
+            class="form-control m-2"
+            placeholder="Enter Title"
+            aria-label="title"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+        <div class="form-floating">
+          <textarea class="form-control"  name="body" id="body"></textarea>
+        </div>
+        <button type="submit" class="btn btn-info m-3">submit</button>
+      </form>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>

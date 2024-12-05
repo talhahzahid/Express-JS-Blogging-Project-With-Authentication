@@ -1,7 +1,6 @@
 import express from "express"
-// import { Router } from "express"
-import { registerUser, loginUser} from "../controllers/user.controllers.js"
-// import User from '../models/user.models.js'
+import { registerUser, loginUser, logoutUser } from "../controllers/user.controllers.js"
+
 
 const router = express.Router()
 
@@ -14,6 +13,7 @@ router.get('/signin', (req, res) => {
 
 router.post('/signup', registerUser)
 router.post('/signin', loginUser)
+router.get('/logout', logoutUser)
 
 export default router
 
