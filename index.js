@@ -6,12 +6,15 @@ const PORT = process.env.PORT || 3000;
 import path from "path";
 import connectdb from "./src/db/index.js";
 import router from "./src/routes/user.route.js";
+import cookieParser from "cookie-parser";
+import { checkAuthenticationFromUser } from "./middleware/authentication.js";
 
 
 
 app.use(express.urlencoded({ extended: false }));
-app.use('/user', router)
-
+app.use(cookieParser())
+app.use('/user', router)    
+app.use(checkAuthenticationFromUser("token"))
 
 
 // ejs setup
@@ -21,7 +24,9 @@ app.set("views", path.resolve("./views"));
 
 
 app.get('/', (req, res) => {
-    res.render("home");
+    res.render("home", {
+        user: req.user,
+    })
 });
 
 

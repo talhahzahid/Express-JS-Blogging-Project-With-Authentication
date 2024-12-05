@@ -20,14 +20,21 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
     console.log('Email:', email);
     try {
-        const user = await User.matchPassword(email, password);
-        console.log('User:', user);
+        const user = await User.matchPasswordAndGenerateToken(email, password);
+        console.log('User', user);
+        res.cookie("token", user)
         return res.redirect('/');
     } catch (error) {
         console.log(error);
         res.redirect('/user/signin')
     }
 };
+
+// logout user 
+// const logoutUser = (req, res) => {
+//     res.clearcookies("token")
+//     return res.redirect('/user/signin');
+// }
 
 
 

@@ -17,6 +17,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
+        <% if (locals.user) { %>
         <li class="nav-item">
           <a class="nav-link" href="#">Add Blog</a>
         </li>
@@ -31,9 +32,17 @@
             Talha Zahid
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Log Out</a></li>
+            <li><a class="dropdown-item" href="/">logout</a></li>
           </ul>
         </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/signup">Create Acout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/signin">Sign In</a>
+        </li>
+        <% } %>
       </ul>
     </div>
   </div>
