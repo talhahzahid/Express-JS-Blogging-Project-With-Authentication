@@ -12,7 +12,7 @@ const registerUser = async (req, res) => {
         email,
         password
     });
-    return res.redirect('/')
+    return res.redirect('/user/signin')
 }
 
 // login
